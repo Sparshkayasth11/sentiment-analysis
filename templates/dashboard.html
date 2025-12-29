@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 25px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .nav {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .nav a {
+            display: inline-block;
+            margin: 0 8px;
+            padding: 10px 18px;
+            background: white;
+            color: #4a4aef;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav a:hover {
+            background: #4a4aef;
+            color: white;
+        }
+
+        /* GRID LAYOUT */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box h2 {
+            color: #4a4aef;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .box p {
+            color: #555;
+            font-size: 15px;
+            margin: 5px 0;
+        }
+
+        img {
+            width: 100%;
+            max-height: 230px;
+            object-fit: contain;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        /* SUMMARY SPAN FULL WIDTH */
+        .summary {
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>📊 Sentiment Analysis Dashboard</h1>
+
+<div class="nav">
+    <a href="/profile">🏠 Profile</a>
+    <a href="/predict-page">💬 Predict</a>
+    <a href="/logout">🚪 Logout</a>
+</div>
+
+<div class="dashboard-grid">
+
+    <!-- Summary (Full Width) -->
+    <div class="box summary">
+        <h2>📘 Dataset Summary</h2>
+        <p><b>Total Reviews:</b> {{ total }}</p>
+        <p><b>Positive:</b> {{ positive }}</p>
+        <p><b>Negative:</b> {{ negative }}</p>
+        <p><b>Model Accuracy:</b> {{ accuracy }}%</p>
+    </div>
+
+    <!-- Charts -->
+    <div class="box">
+        <h2>😊 Positive WordCloud</h2>
+        <img src="{{ url_for('static', filename='wordcloud_positive.png') }}">
+    </div>
+
+    <div class="box">
+        <h2>😡 Negative WordCloud</h2>
+        <img src="{{ url_for('static', filename='wordcloud_negative.png') }}">
+    </div>
+
+    <div class="box">
+        <h2>📊 Sentiment Distribution</h2>
+        <img src="{{ url_for('static', filename='pie.png') }}">
+    </div>
+
+    <div class="box">
+        <h2>🔠 Top 10 Frequent Words</h2>
+        <img src="{{ url_for('static', filename='bar.png') }}">
+    </div>
+
+    <div class="box">
+        <h2>📉 Confusion Matrix</h2>
+        <img src="{{ url_for('static', filename='confusion.png') }}">
+    </div>
+
+</div>
+
+</body>
+</html>

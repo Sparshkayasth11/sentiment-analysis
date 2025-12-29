@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome | NLP Application</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 80px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #4a4aef;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .feature-box {
+            background: #f4f6ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-box h3 {
+            color: #4a4aef;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        .actions a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 12px 22px;
+            background: #4a4aef;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .actions a:hover {
+            background: #3737c9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Welcome to the NLP Application 🤖</h1>
+    <p class="tagline">
+        An intelligent platform powered by <b>Natural Language Processing</b> and <b>Machine Learning</b>
+        to analyze and understand text data.
+    </p>
+
+    <div class="features">
+        <div class="feature-box">
+            <h3>💬 Sentiment Analysis</h3>
+            <p>
+                Predict whether a given text expresses a <b>positive</b> or <b>negative</b> sentiment
+                using a trained machine learning model.
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <h3>📊 Analytics Dashboard</h3>
+            <p>
+                Visualize dataset insights including sentiment distribution, word clouds,
+                confusion matrix, and model performance metrics.
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <h3>🔍 Named Entity Recognition</h3>
+            <p>
+                Extract important entities such as <b>names, places, organizations</b>
+                from textual data for better understanding.
+            </p>
+        </div>
+    </div>
+
+    <p>
+        This application is designed as an academic project to demonstrate the
+        real-world use of NLP techniques in text analysis.
+    </p>
+
+    <div class="actions">
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    </div>
+</div>
+
+</body>
+</html>
